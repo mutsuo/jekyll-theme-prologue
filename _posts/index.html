@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>任务04_1 猜拳游戏 | 糖分仓</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="C" />
+    
+    <meta name="description" content="实现一个猜拳游戏，让你与电脑对决。你出的手势由你自己决定，电脑则随机出拳，最后判断胜负。">
+<meta name="keywords" content="C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="任务04_1 猜拳游戏">
+<meta property="og:url" content="https://mutsuo.github.io/2017/04/28/2017-04-28-猜拳游戏/index.html">
+<meta property="og:site_name" content="糖分仓">
+<meta property="og:description" content="实现一个猜拳游戏，让你与电脑对决。你出的手势由你自己决定，电脑则随机出拳，最后判断胜负。">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V13dO0Kg0OUZCu/cOibq7DFz*A54iTgQGyKbgsnjJ4kwXHuCj5iHq4yHSk!/b/dPIAAAAAAAAA&amp;bo=VAY4BPgR.wsRAEA!&amp;rf=viewer_4">
+<meta property="og:updated_time" content="2017-09-07T09:47:46.181Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="任务04_1 猜拳游戏">
+<meta name="twitter:description" content="实现一个猜拳游戏，让你与电脑对决。你出的手势由你自己决定，电脑则随机出拳，最后判断胜负。">
+<meta name="twitter:image" content="http://a3.qpic.cn/psb?/V13dO0Kg0OUZCu/cOibq7DFz*A54iTgQGyKbgsnjJ4kwXHuCj5iHq4yHSk!/b/dPIAAAAAAAAA&amp;bo=VAY4BPgR.wsRAEA!&amp;rf=viewer_4">
+    
+
+    
+
+    
+        <link rel="icon" href="/favicon.ico# path to favicon" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?92b794ff6054116f034691879f7c660b# enter Baidu Analytics hash key";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">to be yourself</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/C语言程序设计基础/">C语言程序设计基础</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/WEB开发-一/">WEB开发(一)</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/WEB开发-二/">WEB开发(二)</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/算法/">算法</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/计算机导论/">计算机导论</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/C语言程序设计基础/">C语言程序设计基础</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-2017-04-28-猜拳游戏" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        任务04_1 猜拳游戏
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/04/28/2017-04-28-猜拳游戏/" class="article-date">
+            <time datetime="2017-04-28T14:18:14.000Z" itemprop="datePublished">2017-04-28</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/C/">C</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>实现一个猜拳游戏，让你与电脑对决。你出的手势由你自己决定，电脑则随机出拳，最后判断胜负。<br><a id="more"></a><br><img src="http://a3.qpic.cn/psb?/V13dO0Kg0OUZCu/cOibq7DFz*A54iTgQGyKbgsnjJ4kwXHuCj5iHq4yHSk!/b/dPIAAAAAAAAA&amp;bo=VAY4BPgR.wsRAEA!&amp;rf=viewer_4" alt="此处输入图片的描述"><br>认真阅读下面要求，完成本次任务代码的编写。</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>实现一个猜拳游戏，让你与电脑对决。你出的手势由你自己决定，电脑则随机出拳，最后判断胜负。要求使用循环实现。</p>
+<h2 id="程序输入"><a href="#程序输入" class="headerlink" title="程序输入"></a>程序输入</h2><p>用户通过输入数字表示自己的出招，1:石头 2:剪子 3:步 4:退出，其它值表示非法输入，要求重新输入，每次输入前要给出提示信息”请您先出(1:石头 2:剪子 3:步 4:退出)：”。</p>
+<h2 id="程序输出"><a href="#程序输出" class="headerlink" title="程序输出"></a>程序输出</h2><p>当用户输入完出招之后，根据用户输入情况做不同的输出。当用户输入非法时需提示用户输入非法，要求重新输入；当用户输入正确时，再输出电脑的出招，然后再输出胜负情况。</p>
+<h2 id="输入示例"><a href="#输入示例" class="headerlink" title="输入示例"></a>输入示例</h2><blockquote>
+<p>例1    请您先出(1:石头 2:剪子 3:布 4:退出)：1<br>例2    请您先出(1:石头 2:剪子 3:布 4:退出)：4<br>例3    请您先出(1:石头 2:剪子 3:布 4:退出)：5</p>
+</blockquote>
+<h2 id="输出示例"><a href="#输出示例" class="headerlink" title="输出示例"></a>输出示例</h2><blockquote>
+<p>例1<br>您&nbsp;&nbsp;&nbsp;&nbsp;出 石头<br>电脑&nbsp;出 石头<br>平局<br> 例2    再见！<br>例3    输入错误，请重新输入!</p>
+</blockquote>
+<h2 id="解题提示"><a href="#解题提示" class="headerlink" title="解题提示"></a>解题提示</h2><p>1、 预备知识: <a href="http://blog.csdn.net/xiaoxiongli/article/details/1667215" target="_blank" rel="external">函数rand()和srand()的用法</a><br>2、处理思路<br>本题的难点应该是判断胜负的方法。<br>依次枚举判断固然是个简单粗暴保证正确的方法，但人们往往不喜欢书写那样冗长的代码来降低自己的工作效率，因此我们应该寻找一种更简约、更理性的算法。<br>首先按照题意，将“石头”、“剪子”、“布”通通用数字表示：</p>
+<p>石头 –&gt; 1<br>剪子 –&gt; 2<br>布   –&gt; 3</p>
+<p>这样或许还是看不出什么，我们更改下数值设定：</p>
+<p>布   –&gt; 0<br>石头 –&gt; 1<br>剪子 –&gt; 2<br>布   –&gt; 3</p>
+<p>其中，按照石头胜剪子，剪子胜布，布胜石头的游戏规则，显然可以发现：</p>
+<p>1 - 2 = -1<br>2 - 3 = -1<br>0 - 1 = -1</p>
+<p>将用户的手势对应的数值减去电脑手势对应的数值，若结果是个负数，那么就表明，用户获胜。<br>同理容易得出负和平局的情况。<br>如果两个数值相减得零，那么平局。<br>如果不满足上述任意一种情况，那么用户输掉游戏。<br>这真的太有意思了。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c"><figcaption><span>c</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt; </span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;time.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">which</span><span class="params">(<span class="keyword">int</span> a)</span></span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> user,com;</div><div class="line">	<span class="keyword">int</span> det;</div><div class="line">	</div><div class="line">	srand(time(<span class="number">0</span>));</div><div class="line">	<span class="comment">// 将当前时间设置为随机数种子，可以将本函数的调用放在main函数中，一个程序只需要设置一次随机数种子</span></div><div class="line">	</div><div class="line">	<span class="keyword">while</span>(<span class="number">1</span>)&#123;</div><div class="line">		<span class="comment">//用户出招 </span></div><div class="line">		<span class="built_in">printf</span>(<span class="string">"请您先出(1:石头 2:剪子 3:布 4:退出)："</span>) ;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;user);</div><div class="line">		</div><div class="line">		<span class="comment">//判断是否合法 </span></div><div class="line">		<span class="keyword">if</span>(user&gt;<span class="number">4</span> || user&lt;<span class="number">1</span>)&#123;</div><div class="line">			<span class="built_in">printf</span>(<span class="string">"输入错误，请重新输入!\n"</span>);</div><div class="line">			<span class="keyword">continue</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//判断是否结束游戏 </span></div><div class="line">		<span class="keyword">if</span> (user==<span class="number">4</span>) <span class="keyword">break</span>;</div><div class="line">		</div><div class="line">		com=rand()%<span class="number">3</span>+<span class="number">1</span>;</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"您\t出 "</span>); </div><div class="line">		which(user);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"电脑\t出 "</span>);</div><div class="line">		which(com);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"\n"</span>);		</div><div class="line">		</div><div class="line">		<span class="comment">//开始比较胜负</span></div><div class="line">		<span class="keyword">if</span> (user==com) <span class="built_in">printf</span>(<span class="string">"平局\n"</span>);</div><div class="line">		 <span class="keyword">else</span>&#123;</div><div class="line">			<span class="keyword">if</span> (user==<span class="number">3</span> &amp;&amp; user&gt;com) user=<span class="number">0</span>;</div><div class="line">			det=user-com;</div><div class="line">			</div><div class="line">			<span class="keyword">if</span>(det==<span class="number">-1</span>) <span class="built_in">printf</span>(<span class="string">"胜\n"</span>);</div><div class="line">			 <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"负\n"</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">//游戏结束 </span></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"再见！\n"</span>);</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">which</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</div><div class="line">	<span class="keyword">switch</span>(a)&#123;</div><div class="line">		<span class="keyword">case</span> <span class="number">1</span>:<span class="built_in">printf</span>(<span class="string">"石头"</span>) ;	<span class="keyword">break</span>; </div><div class="line">		<span class="keyword">case</span> <span class="number">2</span>:<span class="built_in">printf</span>(<span class="string">"剪子"</span>);	<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">case</span> <span class="number">3</span>:<span class="built_in">printf</span>(<span class="string">"布"</span>);	<span class="keyword">break</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h2><figure class="highlight c"><figcaption><span>c</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> nUser;</div><div class="line">    <span class="keyword">int</span> nComputer;</div><div class="line"></div><div class="line">    srand(time(<span class="number">0</span>));</div><div class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"请您先出(1:石头 2:剪子 3:步 4:退出)："</span>);</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;nUser);</div><div class="line">        <span class="keyword">if</span>(<span class="number">0</span>&gt;=nUser || <span class="number">5</span>&lt;=nUser)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"输入错误，请重新输入!\n"</span>);</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(<span class="number">4</span>==nUser)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"再见！\n"</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="number">1</span>==nUser)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"您  出 石头\n"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="number">2</span>==nUser)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"您  出 剪子\n"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"您  出 布\n"</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        nComputer = rand()%<span class="number">3</span>+<span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span>(<span class="number">1</span>==nComputer)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"电脑出 石头\n"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="number">2</span>==nComputer)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"电脑出 剪子\n"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"电脑出 布\n"</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(nUser == nComputer)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"平局\n"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>((<span class="number">1</span>==nUser &amp;&amp; <span class="number">2</span>==nComputer)</div><div class="line">            || (<span class="number">2</span>==nUser &amp;&amp; <span class="number">3</span>==nComputer)</div><div class="line">            || (<span class="number">3</span>==nUser &amp;&amp; <span class="number">1</span>==nComputer))</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"赢了\n"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"输了\n"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>五一劳动节 普天同庆<br>五一不放假 五一要劳动<br>各科老师纷纷留下任务<br>劳动光荣 我爱劳动</p>
+<p><img src="http://i1.piimg.com/4851/4e418f8549d3701a.png" alt="c语言老师在五一假期前夕发送了这样的消息"></p>
+<p>看到这样的消息，同学们纷纷表示感谢</p>
+<p><img src="http://i2.muimg.com/4851/f6b09794c99adc7f.png" alt=""><br><img src="http://i2.muimg.com/4851/5b79b1cf4c82a1d5.png" alt=""><br><img src="http://i1.piimg.com/4851/b7570244e788b55a.png" alt=""><br>真是令人感动的消息。<br><img src="http://i2.muimg.com/4851/5a4c2aee89c2b587.jpg" alt=""><br>老师我爱你。</p>
+<p>手动分割线。</p>
+<p>看到这道题目的时候我的内心产生了剧烈的波动，心理暗爽。<br>猜拳？？<br>猜拳？！！！<br>就是传说中的那个猜拳？？！！<br>亲切得不行。<br>虽然不是什么很牛逼的东西但是我上学期做课设的时候当作很牛逼的东西认真地做过啊！！<br><a href="https://github.com/mutsuo/finger-guessing-game" target="_blank" rel="external">github</a><br>这是个非常简陋但是正儿八经的、只能用来自娱自乐的游戏。<br>它没有图形界面，而且很搞笑，真的。<br>[这里应有截图但是现在还没有]<br>为了折腾这个玩意儿我很认真地准备了很多素材，找到合适的图然后用工具转成字符画，设计界面（虽然很简陋但是真的是下了功夫的），一点一点地调试。<br>因为是团队作业还装作正经地写了项目管理、说明文档什么的，虽然有点拙劣但是心里还是很爽的？</p>
+<p>所以付出就有回报啊同志们！<br>不知道自己在说什么，就是有点激动，请见谅。</p>
+<p>如果有更好的想法或者纠错欢迎评论，感谢各位大佬。</p>
+
+        </div>
+        <footer class="article-footer">
+            
+    <div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_qzone">QQ空间</a>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<style>
+    .jiathis_style div:first-child:not(.jiadiv_01) {
+        width: auto !important;
+        border: none !important;
+    }
+    .jiathis_style .jiadiv_01 {
+        margin: 10px 0;
+        border-radius: 4px;
+        border: #e1e1e1 solid 1px;
+    }
+    .jiathis_style .jiadiv_01 div:first-child {
+        display: none;
+    }
+    .jiathis_style .jiadiv_02 {
+        padding: 7px 0 !important;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle {
+        width: 85px;
+        border: none;
+        height: auto;
+        margin: 3px 10px;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:hover {
+        border: none;
+    }
+    .jiathis_style .jiadiv_02 .jiatitle:nth-child(even) {
+        margin-left: 0;
+    }
+    .jiathis_style .jtico:hover {
+        opacity: 1;
+    }
+    .jiathis_style .ckepopBottom,
+    .jiathis_style .centerBottom {
+        width: auto !important;
+        padding: 5px;
+        background: #f7f7f7;
+    }
+</style>
+
+
+
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/mutsuo" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="http://weibo.com/p/1005051769273092/home?from=page_100505&mod=TAB&is_all=1#place" target="_blank">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/04/29/2017-04-29-猜拳大比拼/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">下一篇</strong>
+        <p class="article-nav-title">
+        
+            猜拳大比拼
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/14/web2-第二章/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/WEB开发-二/">WEB开发(二)</a></p>
+                            <p class="item-title"><a href="/2017/09/14/web2-第二章/" class="title">web2_第二章</a></p>
+                            <p class="item-date"><time datetime="2017-09-14T03:39:12.000Z" itemprop="datePublished">2017-09-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/09/14/web2-第一章/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://a3.qpic.cn/psb?/V13dO0Kg0OUZCu/.qOAMLE9vEGryEG0nRJpT4lNp*bINjufs9Ak*zHSesI!/b/dPIAAAAAAAAA&amp;bo=VAY4BGAVQA4RCWs!&amp;rf=viewer_4)" alt="web2_第一章" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/WEB开发-二/">WEB开发(二)</a></p>
+                            <p class="item-title"><a href="/2017/09/14/web2-第一章/" class="title">web2_第一章</a></p>
+                            <p class="item-date"><time datetime="2017-09-14T02:54:37.000Z" itemprop="datePublished">2017-09-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/07/08/科节作品与WEB开发（一）课程设计/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://a3.qpic.cn/psb?/V13dO0Kg0OUZCu/PtpWnuhjOVv00lj6K5jw1dFgirAmc5XW3Dyb2DnuAdg!/b/dPIAAAAAAAAA&amp;bo=SgX5AkoF.QIDCSw!&amp;rf=viewer_4)" alt="科节作品与WEB开发（一）课程设计" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/WEB开发-一/">WEB开发(一)</a></p>
+                            <p class="item-title"><a href="/2017/07/08/科节作品与WEB开发（一）课程设计/" class="title">科节作品与WEB开发（一）课程设计</a></p>
+                            <p class="item-date"><time datetime="2017-07-08T13:24:58.000Z" itemprop="datePublished">2017-07-08</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/06/05/任务06/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://a3.qpic.cn/psb?/V13dO0Kg0OUZCu/oBZO8zGDmpbmtSO83HVsKqHhPIIGZay7*033d7xOgVg!/b/dPIAAAAAAAAA&amp;bo=CAJbAQgCWwERADc!&amp;rf=viewer_4)" alt="任务06" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/C语言程序设计基础/">C语言程序设计基础</a></p>
+                            <p class="item-title"><a href="/2017/06/05/任务06/" class="title">任务06</a></p>
+                            <p class="item-date"><time datetime="2017-06-05T14:34:06.000Z" itemprop="datePublished">2017-06-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/06/02/动态内存分配、指针数组、字符串综合应用题/" class="thumbnail">
+    
+    
+        <span style="background-image:url(http://a3.qpic.cn/psb?/V13dO0Kg0OUZCu/9HsrFzn8qC.biO1bcu.YBX5nTerglYqxAIqcJSrk8Jg!/b/dPIAAAAAAAAA&amp;bo=CAJyAQgCcgERCT4!&amp;rf=viewer_4)" alt="动态内存分配、指针数组、字符串综合应用题" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/C语言程序设计基础/">C语言程序设计基础</a></p>
+                            <p class="item-title"><a href="/2017/06/02/动态内存分配、指针数组、字符串综合应用题/" class="title">动态内存分配、指针数组、字符串综合应用题</a></p>
+                            <p class="item-date"><time datetime="2017-06-02T14:54:13.000Z" itemprop="datePublished">2017-06-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/C语言程序设计基础/">C语言程序设计基础</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/WEB开发-一/">WEB开发(一)</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/WEB开发-二/">WEB开发(二)</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机导论/">计算机导论</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/web/">web</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序/">排序</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/C/" style="font-size: 20px;">C</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/web/" style="font-size: 15px;">web</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="http://janborn.lofter.com/">Lofter</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://www.pexels.com/">Pexels</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2017 睦生|mutsuo</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://mutsuo.github.io/2017/04/28/2017-04-28-猜拳游戏/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
