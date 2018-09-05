@@ -6,17 +6,20 @@ icon: fa-book
 order: 3
 ---
 
-I love books! Here are some I'm reading now:
+这里记录读过/要读的书籍。
 
-1. Robert Burton: *The Anatomy of Melancholy*
-2. Robert Musil: *The Man Without Qualities*
-3. Kazuo Ishiguro: *The Unconsoled*
-4. Malcolm Lowry: *Under the Volcano*
-5. Virginia Woolf: *The Waves*
-6. James Joyce: *Finnegans Wake*
-7. Thomas Wolfe: *Look Homeward, Angel*
-8. William Thackeray: *Pendennis*
-9. Karl Marx: *Capital*
-10. James Woodforde: *The Diary of A Country Parson*
+2018-06
+1. 《火花》 又吉直树
+2. 《谣言》 卡斯·桑斯坦
+3. 《暴力：一种围观社会理论》 兰德尔·科林斯
+4. 《冲突与悬念：小说创作的要素》 詹姆斯·科斯特·贝尔（在读）
 
-source: [The Guardian](https://www.theguardian.com/books/booksblog/2011/jan/04/best-boring-books)
+2018-07
+1. 《恶意》 东野圭吾
+2. 《哥白尼的呼吸1、2》 中村明日美子
+
+2018-08
+1. 《空之境界（上）》 奈须蘑菇
+
+2018-09
+1. 《游戏剧本怎么写》 佐佐木智广
